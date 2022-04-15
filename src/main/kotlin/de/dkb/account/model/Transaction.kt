@@ -1,7 +1,7 @@
 package de.dkb.account.model
 
 import com.fasterxml.jackson.annotation.JsonIgnore
-import java.util.*
+import java.util.UUID
 import javax.persistence.*
 
 @Entity
@@ -14,7 +14,7 @@ class Transaction (
 
     val creditorIban: String,
 
-    val amount: Double,
+    val amount: Int, //I think, it is safer to keep balance in Int, operating with cents on backend
 
     val description: String,
 

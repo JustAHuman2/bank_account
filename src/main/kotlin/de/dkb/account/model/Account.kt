@@ -1,7 +1,7 @@
 package de.dkb.account.model
 
 import com.fasterxml.jackson.annotation.JsonIgnore
-import java.util.*
+import java.util.UUID
 import javax.persistence.Entity
 import javax.persistence.Id
 import javax.persistence.OneToMany
@@ -9,7 +9,7 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "accounts")
-class Account (
+data class Account(
     @Id
     val accountId: UUID,
 
@@ -27,3 +27,5 @@ class Account (
 ) {
     val currentBalance get() = balance - transactions.sumOf { it.amount }
 }
+
+enum class Type { CHECKING, SAVINGS, LOAN }
