@@ -1,0 +1,49 @@
+databaseChangeLog:
+  - changeSet:
+      id:  1
+      author:  my.name
+      changes:
+        - createTable:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  type: uuid
+              - column:
+                  name: iban
+                  type: varchar(22)
+              - column:
+                  name: type
+                  type: varchar(10)
+              - column:
+                  name: balance
+                  type: decimal
+              - column:
+                  name: holder
+                  type: varchar(30)
+        - addNotNullConstraint:
+            tableName: accounts
+            columnName: account_id
+        - addPrimaryKey:
+            tableName: accounts
+            columnNames: account_id
+            constraintName: accountIdPk
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  value: 811b0dd1-d078-4b15-8902-605196c760ec
+              - column:
+                  name: iban
+                  value: DE45500105179958922164
+              - column:
+                  name: type
+                  value: CHECKING
+              - column:
+                  name: balance
+                  value: 500.00
+              - column:
+                  name: holder
+                  value: Max Mustermann
+
