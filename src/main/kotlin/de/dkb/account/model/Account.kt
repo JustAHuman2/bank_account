@@ -15,10 +15,13 @@ data class Account(
 
     val iban: String,
 
-    val type: String,
+    val type: String, //todo: it will be better to change String to Enum & make table with
+    // Type values in DB & link it with Account table to make it type-safe,
+    //also change h2 to normal DB and move test data from resources to the test package &
+    //maybe add testContainer to check how it works inside DB and rest-assured for endpoints testing
 
     @JsonIgnore
-    val balance: Double,
+    val balance: Int,
 
     val holder: String,
 
